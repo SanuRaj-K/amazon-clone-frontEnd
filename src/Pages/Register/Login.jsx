@@ -16,27 +16,32 @@ function Login() {
   };
 
   const handleSubmit = (e) => {
+    const toastId = toast.loading("loading...");
     e.preventDefault();
     axios
-      .post("https://amazon-clone-backend-fz8l.onrender.com/users/login", formValues, {
-        withCredentials: true,
-      })
+      .post(
+        "https://amazon-clone-backend-fz8l.onrender.com/users/login",
+        formValues,
+        {
+          withCredentials: true,
+        }
+      )
       .then((response) => {
         if (response.data.status === "success") {
           const user = response.data.user;
           const loginUser = JSON.stringify(user);
           localStorage.setItem("loginuser", loginUser);
 
-          toast.success("login successful");
+          toast.success("login successful", { id: toastId });
           const token = response.data.token;
           localStorage.setItem("loginToken", token);
           history("/");
         } else {
-          toast.error(response.data);
+          toast.error(response.data, { id: toastId });
         }
       })
       .catch((err) => {
-        toast.error(err.data);
+        toast.error(err.data, { id: toastId });
       });
   };
   return (

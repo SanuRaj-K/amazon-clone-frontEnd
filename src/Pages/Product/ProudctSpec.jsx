@@ -25,18 +25,21 @@ function ProudctSpec() {
       })
       .catch((err) => console.log(err));
   }, [id]);
-  
 
   const handleCart = () => {
+    const toastId = toast.loading("loading...");
     if (Object.keys(authUser).length !== 0) {
       if (authUser) {
         axios
-          .post("https://amazon-clone-backend-fz8l.onrender.com/users/addtocart", { userId, id })
+          .post(
+            "https://amazon-clone-backend-fz8l.onrender.com/users/addtocart",
+            { userId, id }
+          )
           .then((res) => {
             if (res.data.status === "inCart") {
-              toast.error("item already added");
+              toast.error("item already added", { id: toastId });
             } else {
-              toast.success("item added");
+              toast.success("item added", { id: toastId });
 
               setCartCount(cartCount + 1);
             }
@@ -46,7 +49,7 @@ function ProudctSpec() {
           });
       }
     } else {
-      toast.error("login required");
+      toast.error("login required",{id:toastId});
     }
   };
 

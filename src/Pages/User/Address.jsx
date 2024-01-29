@@ -12,7 +12,6 @@ function Address() {
   const user = localStorage.getItem("loginuser");
   const localUser = JSON.parse(user);
   const userId = localUser._id;
- 
 
   const [formErrors, setFormErrors] = useState({});
   const [formValues, setFormValues] = useState({
@@ -26,7 +25,9 @@ function Address() {
 
   useEffect(() => {
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getuser/${userId}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/getuser/${userId}`
+      )
       .then((res) => {
         const data = res.data;
         setLoginUser(data);
@@ -75,24 +76,28 @@ function Address() {
   };
 
   const handleUpdate = (e) => {
+    const toastId = toast.loading("loading...");
     e.preventDefault();
     const errors = validate(formValues);
     setFormErrors(validate(formValues));
     if (Object.keys(errors).length === 0) {
       axios
-        .post("https://amazon-clone-backend-fz8l.onrender.com/users/updateuser", { formValues, userId })
+        .post(
+          "https://amazon-clone-backend-fz8l.onrender.com/users/updateuser",
+          { formValues, userId }
+        )
         .then((res) => {
           if (res.status === 200) {
             setAddress(res.data);
             console.log(res.data);
-            toast.success("updated");
+            toast.success("updated", { id: toastId });
             history("/account");
           }
         })
         .catch((err) => console.log(err));
     }
   };
-  
+
   console.log(localUser);
 
   return (
@@ -100,7 +105,10 @@ function Address() {
       <h1 className="text-center">Edit your address</h1>
       <div className="h-[110vh] flex justify-center mt-[20px]">
         <div>
-          <form action="" className="border flex flex-col items-center w-[30vw]">
+          <form
+            action=""
+            className="border flex flex-col items-center w-[30vw]"
+          >
             <section className="flex justify-center items-center my-8">
               <img src={Logo} alt="logo" className="w-21 h-16" />
               <div className="ml-2">.in</div>
@@ -114,7 +122,7 @@ function Address() {
                   className="border px-2 py-1 w-full"
                   type="text"
                   name="username"
-                  value={formValues.username|| localUser.username}
+                  value={formValues.username || localUser.username}
                   onChange={handleChange}
                   id="username"
                 />
@@ -130,7 +138,7 @@ function Address() {
                   className="border px-2 py-1 w-full"
                   type="number"
                   name="phone"
-                  value={formValues.phone||localUser.phone}
+                  value={formValues.phone || localUser.phone}
                   onChange={handleChange}
                   id="phone"
                 />
