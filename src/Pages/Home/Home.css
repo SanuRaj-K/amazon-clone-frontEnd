@@ -67,7 +67,7 @@ section.set span {
 
 #deals section.list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     align-content: center;
     background-color: #fff;

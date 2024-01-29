@@ -12,9 +12,12 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/viewcart/${id}`, {
-        withCredentials: true,
-      })
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/viewcart/${id}`,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         if (!isEqual(cartItems, res.data)) {
           setCartItems(res.data);
@@ -30,7 +33,9 @@ function Cart() {
 
   const handleCartRemove = (prodId) => {
     axios
-      .delete(`https://amazon-clone-backend-fz8l.onrender.com/users/removecart/${id}/${prodId}`)
+      .delete(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/removecart/${id}/${prodId}`
+      )
       .then((res) => {
         setCartItems((prevCartItems) =>
           prevCartItems.filter((item) => item._id !== prodId)
@@ -43,14 +48,19 @@ function Cart() {
   };
 
   const handleonChange = (e, prodId) => {
+    const toastId = toast.loading("loading");
     const quantity = e.target.value;
     axios
-      .put(`https://amazon-clone-backend-fz8l.onrender.com/users/handleqty/${id}/${prodId}`, {
-        quantity: quantity,
-      })
+      .put(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/handleqty/${id}/${prodId}`,
+        {
+          quantity: quantity,
+        }
+      )
       .then((res) => {
         console.log(res);
         setCartItems(res.data);
+        toast.success("Quantity changed", { id: toastId });
       })
       .catch((err) => {
         console.log(err);

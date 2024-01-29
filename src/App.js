@@ -48,7 +48,9 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://amazon-clone-backend-fz8l.onrender.com/users/products", { withCredentials: true })
+      .get("https://amazon-clone-backend-fz8l.onrender.com/users/products", {
+        withCredentials: true,
+      })
       .then((response) => {
         setData(response.data);
       })

@@ -2,7 +2,7 @@ import React from "react";
 function Footer() {
   return (
     <div className="main">
-      <div className="footer-top">Back to top</div>
+     
       <section className="footer-bottom">
         <div className="one">
           <ul>
