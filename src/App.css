@@ -1,0 +1,356 @@
+ .App {
+     text-align: center;
+ }
+
+ .App-logo {
+     height: 40vmin;
+     pointer-events: none;
+ }
+
+ @media (prefers-reduced-motion: no-preference) {
+     .App-logo {
+         animation: App-logo-spin infinite 20s linear;
+     }
+ }
+
+ .App-header {
+     background-color: #282c34;
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     font-size: calc(10px + 2vmin);
+     color: white;
+ }
+
+ .App-link {
+     color: #61dafb;
+ }
+
+ @keyframes App-logo-spin {
+     from {
+         transform: rotate(0deg);
+     }
+
+     to {
+         transform: rotate(360deg);
+     }
+ }
+
+
+ nav.top {
+     background-color: #000;
+     width: 100%;
+     height: 60px;
+     display: flex;
+     justify-content: space-between;
+     align-content: center;
+     align-items: center;
+     color: #fff;
+     font-size: 12px;
+
+
+ }
+
+ div.left {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     align-content: center;
+
+
+ }
+
+ div.left img {
+     height: 30px;
+     width: 90px;
+     margin-left: 30px;
+
+ }
+
+ div.left img.location {
+     height: 25px;
+     width: 18px;
+
+ }
+
+ div.left div.address {
+     padding-left: 25px;
+     display: flex;
+     line-height: 1;
+     align-items: center;
+ }
+
+ div.center input {
+     width: 250px;
+     height: 21px;
+     border-radius: 4px;
+ }
+
+ div.center {
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
+
+ div.right {
+     margin-top: 5px;
+ }
+
+ div.right ul {
+     list-style: none;
+     display: flex;
+     align-items: center;
+     align-content: center;
+     justify-content: space-around;
+ }
+
+ div.right ul li {
+     margin-right: 30px;
+     font-size: 12px;
+ }
+
+ div.center {
+     height: 40px;
+     width: 760px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     align-content: center;
+     background-color: white;
+     border-top-right-radius: 4px;
+     border-bottom-right-radius: 4px;
+     border-top-left-radius: 4px;
+     border-bottom-left-radius: 4px;
+ }
+
+ div.center div.pre-div {
+     width: 50px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 40px;
+     background: #cdc5c5;
+     font-weight: bold;
+     color: #4d4d4d;
+     border-top-left-radius: 4px;
+     border-bottom-left-radius: 4px;
+ }
+
+ div.center div.search {
+     width: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 40px;
+     background: #FEBD69;
+     font-weight: bold;
+
+     border-top-right-radius: 4px;
+     border-bottom-right-radius: 4px;
+ }
+
+ div.center input {
+     width: 650px;
+     height: 35px;
+     border: 0;
+ }
+
+ div.flagItems span {
+     padding: 10px;
+ }
+
+ div.flagItems {
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
+
+ nav.bottom {
+     height: 40px;
+     width: 100%;
+     background-color: #232F3E;
+     display: flex;
+     color: #fff;
+     font-weight: 500;
+
+ }
+
+
+ nav.bottom div.left ul {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     align-content: center;
+     padding: 0;
+
+ }
+
+ nav.bottom div.left ul li {
+     margin-right: 12px;
+     font-family: Arial, sans-serif;
+ }
+
+ nav.bottom div.left ul li img {
+     height: 25px;
+     width: 25px;
+     margin-right: 5px;
+ }
+
+ nav.bottom div.left ul li.first {
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
+
+ div.rightSide {
+     display: flex;
+     align-items: center;
+     align-content: center;
+ }
+
+ div.rightSide ul {
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+     align-content: center;
+ }
+
+ div.rightSide ul li {
+     margin-right: 12px;
+
+ }
+
+
+ /* div#spotlight { 
+    width: 100%;
+    background-image: url('../../Assets/Images/Pictures/AF-Unrec-3000._CB570585186_.jpg');
+    background-size: cover;  
+    height: 70vh;
+}
+#spotlight section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    top: 300px;
+}
+#spotlight section div{
+    background-color: #fff;
+      
+}
+ 
+
+  */
+
+ div.footer-top {
+     height: 45px;
+     width: 100%;
+     color: #EEFFFF;
+     background-color: #37475A;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     align-content: center;
+     margin: 0 auto;
+     margin-top: 50px;
+ }
+
+ section.footer-bottom {
+     background-color: #232F3E;
+     color: #fff;
+     display: flex;
+     justify-content: space-evenly;
+     height: 50vh;
+     font-family: Arial, sans-serif;
+
+ }
+
+ section.footer-bottom ul li {
+     color: #DDDDDD;
+     margin-top: 10px;
+     cursor: pointer;
+     font-size: 14px;
+ }
+
+ section.footer-bottom ul li h3 {
+     margin-top: 0;
+
+ }
+
+ div.main {
+     background-color: #232F3E;
+ }
+
+ section.under-bottom {
+     height: 30vh;
+ }
+
+ section.under-bottom div.top {
+     margin-top: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     align-content: center;
+ }
+
+ section.under-bottom div.top button {
+     background-color: #232F3E;
+     border: 1px solid #565C65;
+     border-radius: 8px;
+     padding: 8px 20px;
+     width: 130px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     align-content: center;
+     color: #fff;
+
+ }
+
+ section.under-bottom div.top img.bottomLogo {
+     margin-right: 30px;
+     position: relative;
+     top: 8px;
+ }
+
+ section.under-bottom div.top img.bottomGlobe {
+     height: 15px;
+     width: 15px;
+
+ }
+
+ section.under-bottom div.bottomList {
+     color: #fff;
+     font-size: 14px;
+     width: 70%;
+     margin: 0 auto;
+     font-family: Arial, sans-serif;
+     margin-top: 80px;
+
+ }
+
+ section.under-bottom div.bottomList ul {
+     display: flex;
+     justify-content: space-evenly;
+ }
+
+ section.under-bottom div.bottomSection ul {
+     display: flex;
+     justify-content: center;
+ }
+
+ section.under-bottom div.bottomSection ul li {
+     margin-left: 12px;
+
+ }
+
+
+ .slow-transition {
+     transition: all 600ms ease-in-out;
+      
+      
+ }
+  

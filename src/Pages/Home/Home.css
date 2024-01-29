@@ -1,0 +1,119 @@
+#spotlight {
+    width: 100%;
+    background-size: 100vw 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    background-image: url('../../Assets/Images/Pictures/AF-Unrec-3000._CB570585186_.jpg');
+
+
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-top: 250px;
+    width: 95vw;
+    margin: 0 auto;
+}
+
+.wrapper div.img-section {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+div.common {
+    background-color: #fff;
+    width: 30vw;
+    height: 50vh;
+    margin-left: 10px;
+
+
+
+}
+
+div.common h3 {
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bolder;
+
+}
+
+div.common img {
+    margin: 10px 10px;
+    height: 120px;
+    width: 120px;
+    padding: 15px;
+    cursor: pointer;
+
+}
+
+section.set span {
+    margin-left: 20px;
+    font-size: 12px;
+
+}
+
+#deals {
+    margin-top: 80px;
+    background-color: #E3E6E6;
+    height: 130vh;
+
+}
+
+#deals section.list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    height: 50vh;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+#deals section.list div img {
+    cursor: pointer;
+}
+
+#deals section.list-bottom div img {
+    cursor: pointer;
+}
+
+.deals-top {
+    display: flex;
+    margin: 20px;
+    padding-top: 10px;
+}
+
+.deals-top h2 {
+    margin-right: 8px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.deals-top span {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgb(44, 161, 207);
+    position: relative;
+    top: 10px;
+
+}
+section.list-bottom {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    height: 50vh;
+    
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
