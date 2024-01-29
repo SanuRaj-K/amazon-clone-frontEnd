@@ -19,7 +19,7 @@ function ProudctSpec() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/product/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/product/${id}`)
       .then((res) => {
         setProduct(res.data);
       })
@@ -31,7 +31,7 @@ function ProudctSpec() {
     if (Object.keys(authUser).length !== 0) {
       if (authUser) {
         axios
-          .post("http://localhost:3005/users/addtocart", { userId, id })
+          .post("https://amazon-clone-backend-fz8l.onrender.com/users/addtocart", { userId, id })
           .then((res) => {
             if (res.data.status === "inCart") {
               toast.error("item already added");
@@ -52,7 +52,7 @@ function ProudctSpec() {
 
   const handleBuy = (prodId) => {
     // axios
-    //   .post("http://localhost:3005/users/payment", { prodId, userId })
+    //   .post("https://amazon-clone-backend-fz8l.onrender.com/users/payment", { prodId, userId })
     // .then((res) => {
     //   console.log(res);
     //   history("/payments");
