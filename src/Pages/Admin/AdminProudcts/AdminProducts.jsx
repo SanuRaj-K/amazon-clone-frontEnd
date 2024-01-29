@@ -9,7 +9,7 @@ function AdminProducts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/admin/getproducts")
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/getproducts")
       .then((res) => {
         const data = res.data;
         setProducts(data);
@@ -23,7 +23,7 @@ function AdminProducts() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/admin/getproducts/${newProd}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getproducts/${newProd}`)
       .then((res) => {
         const data = res.data;
         setProducts(data);

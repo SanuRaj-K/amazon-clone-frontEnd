@@ -18,7 +18,7 @@ function AddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3005/admin/addproduct", productData)
+      .post("https://amazon-clone-backend-fz8l.onrender.com/admin/addproduct", productData)
       .then((res) => {
         console.log(res.data.data);
         toast.success("Product added successfully");

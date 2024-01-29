@@ -6,7 +6,7 @@ function OrderDetails() {
   const [orderItems, setOrderItems] = useState({});
   useEffect(() => {
     axios
-      .get("http://localhost:3005/admin/orderdetails")
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/orderdetails")
       .then((res) => {
         setOrderItems(res.data);
       })

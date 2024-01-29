@@ -26,7 +26,7 @@ function Address() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/getuser/${userId}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getuser/${userId}`)
       .then((res) => {
         const data = res.data;
         setLoginUser(data);
@@ -80,7 +80,7 @@ function Address() {
     setFormErrors(validate(formValues));
     if (Object.keys(errors).length === 0) {
       axios
-        .post("http://localhost:3005/users/updateuser", { formValues, userId })
+        .post("https://amazon-clone-backend-fz8l.onrender.com/users/updateuser", { formValues, userId })
         .then((res) => {
           if (res.status === 200) {
             setAddress(res.data);

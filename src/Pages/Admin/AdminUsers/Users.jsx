@@ -7,7 +7,7 @@ function Users() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/admin/getusers")
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/getusers")
       .then((res) => {
         const data = res.data;
         setUsers(data);

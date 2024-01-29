@@ -11,7 +11,7 @@ function OrderUser() {
   const [status, setStatus] = useState("");
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/admin/getuserorders/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/getuserorders/${id}`)
       .then((res) => {
         setUserData(res.data);
         setStatus(res.data.status)
@@ -30,7 +30,7 @@ function OrderUser() {
 
   const updateStatus = () => {
     axios
-      .put(`http://localhost:3005/admin//updatestatus/${id}/${status}`)
+      .put(`https://amazon-clone-backend-fz8l.onrender.com//updatestatus/${id}/${status}`)
       .then((res) => {
         console.log(res);
         toast.success('updated...')

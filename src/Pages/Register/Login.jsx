@@ -18,7 +18,7 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:3005/users/login", formValues, {
+      .post("https://amazon-clone-backend-fz8l.onrender.com/users/login", formValues, {
         withCredentials: true,
       })
       .then((response) => {

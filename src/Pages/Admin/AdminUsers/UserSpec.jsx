@@ -12,7 +12,7 @@ function UserSpec() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/admin/getuser/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getuser/${id}`)
       .then((res) => {
         const data = res.data;
         setFormData(data);
@@ -25,7 +25,7 @@ function UserSpec() {
   const removeAccount = (e) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:3005/admin/deleteuser/${id}`)
+      .delete(`https://amazon-clone-backend-fz8l.onrender.com/admin/deleteuser/${id}`)
       .then((res) => {
         console.log(res);
         toast.success("User removed");

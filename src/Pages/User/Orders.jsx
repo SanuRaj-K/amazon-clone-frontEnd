@@ -9,7 +9,7 @@ function Orders() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/getorders/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`)
       .then((res) => {
         setOrderItems(res.data);
       })

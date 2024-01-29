@@ -11,7 +11,7 @@ function ProductSpec() {
   const [product, setProduct] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/admin/getproduct/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getproduct/${id}`)
       .then((res) => {
         setProduct(res.data);
       })
@@ -31,7 +31,7 @@ function ProductSpec() {
     e.preventDefault();
     const toastId = toast.loading("updating product...");
     axios
-      .put("http://localhost:3005/admin/updateproduct", product)
+      .put("https://amazon-clone-backend-fz8l.onrender.com/admin/updateproduct", product)
       .then((res) => {
         if (res.status === 200) {
           history("/admin/products");
@@ -49,7 +49,7 @@ function ProductSpec() {
   const handleDelete = (e, product) => {
     e.preventDefault();
     axios
-      .delete(`http://localhost:3005/admin/deleteproduct/${product._id}`)
+      .delete(`https://amazon-clone-backend-fz8l.onrender.com/admin/deleteproduct/${product._id}`)
       .then((res) => {
         if(res.data==='ok'){
           history("/admin/products");

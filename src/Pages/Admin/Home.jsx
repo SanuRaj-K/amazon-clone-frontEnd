@@ -13,7 +13,7 @@ const AdminHomePage = () => {
   const { toggle } = useContext(myContext);
   useEffect(() => {
     axios
-      .get("http://localhost:3005/admin/stats")
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/stats")
       .then((res) => {
         setData(res.data);
       })

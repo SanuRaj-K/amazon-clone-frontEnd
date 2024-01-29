@@ -12,7 +12,7 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/viewcart/${id}`, {
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/viewcart/${id}`, {
         withCredentials: true,
       })
       .then((res) => {
@@ -30,7 +30,7 @@ function Cart() {
 
   const handleCartRemove = (prodId) => {
     axios
-      .delete(`http://localhost:3005/users/removecart/${id}/${prodId}`)
+      .delete(`https://amazon-clone-backend-fz8l.onrender.com/users/removecart/${id}/${prodId}`)
       .then((res) => {
         setCartItems((prevCartItems) =>
           prevCartItems.filter((item) => item._id !== prodId)
@@ -45,7 +45,7 @@ function Cart() {
   const handleonChange = (e, prodId) => {
     const quantity = e.target.value;
     axios
-      .put(`http://localhost:3005/users/handleqty/${id}/${prodId}`, {
+      .put(`https://amazon-clone-backend-fz8l.onrender.com/users/handleqty/${id}/${prodId}`, {
         quantity: quantity,
       })
       .then((res) => {

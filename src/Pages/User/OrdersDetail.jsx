@@ -9,7 +9,7 @@ function OrdersDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/orderspec/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/orderspec/${id}`)
       .then((res) => {
         setData(res.data);
         setAddress(res.data.userId.address);

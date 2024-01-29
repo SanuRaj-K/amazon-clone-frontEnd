@@ -48,7 +48,7 @@ function Registration() {
     if (Object.keys(errors).length === 0) {
       const toastId = toast.loading("loading");
       axios
-        .post("http://localhost:3005/users/register", formValues)
+        .post("https://amazon-clone-backend-fz8l.onrender.com/users/register", formValues)
         .then((response) => {
           if (response.data === "success") {
             setShowOTP(true);
@@ -67,7 +67,7 @@ function Registration() {
 
     e.preventDefault();
     axios
-      .post("http://localhost:3005/users/verify", { otpnum, formValues })
+      .post("https://amazon-clone-backend-fz8l.onrender.com/users/verify", { otpnum, formValues })
       .then((response) => {
         console.log(response);
         if (response.data.status === "success") {
