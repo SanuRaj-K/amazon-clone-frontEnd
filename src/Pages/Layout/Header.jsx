@@ -26,7 +26,6 @@ function Header() {
   const Home_Appliances = "Home Appliances";
   const Electronics = "Electronics";
   const loginToken = localStorage.getItem("loginToken");
-  
 
   useEffect(() => {
     if (loginToken) {
@@ -38,18 +37,14 @@ function Header() {
     }
   }, [authUser, loginToken, setauthUser, setPlace]);
 
-
-
-
-  
-
   useEffect(() => {
     if (loginToken) {
       const user = jwtDecode(loginToken);
-       
-       
+
       axios
-        .get(`http://localhost:3005/users/cartcount/${user.email}`)
+        .get(
+          `https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.email}`
+        )
         .then((res) => {
           if (!isEqual(place, res.data.address)) {
             setPlace(res.data.address);
