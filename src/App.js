@@ -12,7 +12,7 @@ import Verification from "./Pages/Register/Verification";
 import Google from "./Pages/Register/Google";
 import { createContext, useEffect, useState } from "react";
 import Form from "./Pages/Register/Form";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import Category from "./Pages/Product/Category";
 import Address from "./Pages/User/Address";
@@ -47,12 +47,14 @@ function App() {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
+    const toastId = toast.loading("loading....");
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/users/products", {
         withCredentials: true,
       })
       .then((response) => {
         setData(response.data);
+        toast.success("fetched details", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
