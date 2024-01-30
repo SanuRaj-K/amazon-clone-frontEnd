@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
 
 function Orders() {
@@ -8,10 +9,14 @@ function Orders() {
   const [orderItems, setOrderItems] = useState([]);
 
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`
+      )
       .then((res) => {
         setOrderItems(res.data);
+        toast.success("successfull", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
@@ -86,7 +91,10 @@ function Orders() {
                         className="h-[73px] w-[64px]"
                       />
                       <div className=" flex flex-col ml-3 px-2">
-                        <Link to={`/product/${prod._id}`} className=" no-underline">
+                        <Link
+                          to={`/product/${prod._id}`}
+                          className=" no-underline"
+                        >
                           <span className="text-sky-500">{prod.Title}</span>
                         </Link>
                         <span className=" text-[12px] font-semibold">

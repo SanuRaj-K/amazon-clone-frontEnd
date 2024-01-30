@@ -32,6 +32,7 @@ function Cart() {
   }, [id, cartCount, setCartItems, cartItems]);
 
   const handleCartRemove = (prodId) => {
+    const toastId = toast.loading("removing...");
     axios
       .delete(
         `https://amazon-clone-backend-fz8l.onrender.com/users/removecart/${id}/${prodId}`
@@ -41,6 +42,7 @@ function Cart() {
           prevCartItems.filter((item) => item._id !== prodId)
         );
         setCartCount(cartCount - 1);
+        toast.success("product removed0", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
