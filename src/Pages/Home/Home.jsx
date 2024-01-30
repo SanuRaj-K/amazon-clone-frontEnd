@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Home.css";
 import { myContext } from "../../App";
+import { Link } from "react-router-dom";
 function Home() {
   const { data } = useContext(myContext);
   const mobile = data.filter((prod) => prod.Category === "Mobiles");
@@ -35,8 +36,13 @@ function Home() {
                 {DisplayFurniture.map((prod) => {
                   return (
                     <section className="set">
-                      <img src={prod.Image} alt={prod.Title} width={"20px"} />
-                      <span className=" truncate">{prod.Title}</span>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <img src={prod.Image} alt={prod.Title} width={"20px"} />
+                        <span className=" truncate">{prod.Title}</span>
+                      </Link>
                     </section>
                   );
                 })}
@@ -48,8 +54,13 @@ function Home() {
                 {DisplayMob.map((prod) => {
                   return (
                     <section className="set">
-                      <img src={prod.Image} alt={prod.Title} width={"20px"} />
-                      <span className=" truncate">{prod.Title}</span>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <img src={prod.Image} alt={prod.Title} width={"20px"} />
+                        <span className=" truncate">{prod.Title}</span>
+                      </Link>
                     </section>
                   );
                 })}
@@ -61,8 +72,13 @@ function Home() {
                 {DisplayHome.map((prod) => {
                   return (
                     <section className="set">
-                      <img src={prod.Image} alt={prod.Title} width={"20px"} />
-                      <span className=" truncate">{prod.Title}</span>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <img src={prod.Image} alt={prod.Title} width={"20px"} />
+                        <span className=" truncate">{prod.Title}</span>
+                      </Link>
                     </section>
                   );
                 })}
@@ -74,8 +90,13 @@ function Home() {
                 {DisplayElc.map((prod) => {
                   return (
                     <section className="set">
-                      <img src={prod.Image} alt={prod.Title} width={"20px"} />
-                      <span className=" truncate">{prod.Title}</span>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <img src={prod.Image} alt={prod.Title} width={"20px"} />
+                        <span className=" truncate">{prod.Title}</span>
+                      </Link>
                     </section>
                   );
                 })}
@@ -103,9 +124,14 @@ function Home() {
                       </div>
                     </div>
                     <div class="bg-white py-4 px-3">
-                      <h3 class="text-xs mb-2 font-medium truncate">
-                        {prod.Title}
-                      </h3>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <h3 class="text-xs mb-2 font-medium truncate">
+                          {prod.Title}
+                        </h3>
+                      </Link>
                       <div class="flex justify-between items-center">
                         <p class="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
                           Deal of the Day
@@ -136,9 +162,14 @@ function Home() {
                       </div>
                     </div>
                     <div class="bg-white py-4 px-3">
-                      <h3 class="text-xs mb-2 font-medium truncate">
-                        {prod.Title}
-                      </h3>
+                      <Link
+                        to={`/product/${prod._id}`}
+                        className=" no-underline text-black"
+                      >
+                        <h3 class="text-xs mb-2 font-medium truncate">
+                          {prod.Title}
+                        </h3>
+                      </Link>
                       <div class="flex justify-between items-center">
                         <p class="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
                           Most loved

@@ -4,18 +4,21 @@ import Products from "../../Assets/Images/Icons/icons8-product-96.png";
 import Plus from "../../Assets/Images/Icons/icons8-plus-32.png";
 import Users from "../../Assets/Images/Icons/icons8-users-48.png";
 import order from "../../Assets/Images/Icons/icons8-order-48.png";
-import chart from '../../Assets/Images/Icons/icons8-chart-32.png'
+import chart from "../../Assets/Images/Icons/icons8-chart-32.png";
 import { myContext } from "../../App";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const AdminHomePage = () => {
   const [data, setData] = useState({});
   const { toggle } = useContext(myContext);
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/stats")
       .then((res) => {
         setData(res.data);
+        toast.success("", { id: toastId });
       })
       .catch((err) => {
         console.log(err);

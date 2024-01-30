@@ -1,14 +1,19 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 function OrderDetails() {
   const [orderItems, setOrderItems] = useState({});
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/orderdetails")
       .then((res) => {
         setOrderItems(res.data);
+        toast.success("successfully fetched product order details", {
+          id: toastId,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -60,7 +65,7 @@ function OrderDetails() {
 
                 <tbody>
                   {add.map((i) => {
-                    const date= new Date(i.orderDate)
+                    const date = new Date(i.orderDate);
                     return (
                       <tr key={i._id}>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">

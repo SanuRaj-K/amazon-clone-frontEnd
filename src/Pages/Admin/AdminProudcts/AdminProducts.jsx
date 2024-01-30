@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 function AdminProducts() {
@@ -8,12 +9,14 @@ function AdminProducts() {
   const [initial, setInitial] = useState(true);
 
   useEffect(() => {
+    const toastId = toast.loading("loading");
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/getproducts")
       .then((res) => {
         const data = res.data;
         setProducts(data);
         setInitial(true);
+        toast.success("Successfully fetched products", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
@@ -23,7 +26,9 @@ function AdminProducts() {
 
   useEffect(() => {
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getproducts/${newProd}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/admin/getproducts/${newProd}`
+      )
       .then((res) => {
         const data = res.data;
         setProducts(data);

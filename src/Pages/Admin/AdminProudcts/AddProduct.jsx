@@ -16,16 +16,20 @@ function AddProduct() {
   };
 
   const handleSubmit = (e) => {
+    const toastId = toast.loading("loading...");
     e.preventDefault();
     axios
-      .post("https://amazon-clone-backend-fz8l.onrender.com/admin/addproduct", productData)
+      .post(
+        "https://amazon-clone-backend-fz8l.onrender.com/admin/addproduct",
+        productData
+      )
       .then((res) => {
         console.log(res.data.data);
-        toast.success("Product added successfully");
+        toast.success("Product added successfully", { id: toastId });
         history("/admin/products");
       })
       .catch((err) => {
-        toast.error(err.response.data);
+        toast.error(err.response.data, { id: toastId });
       });
   };
 
