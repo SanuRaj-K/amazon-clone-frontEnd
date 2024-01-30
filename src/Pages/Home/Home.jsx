@@ -68,13 +68,13 @@ function Home() {
             </div>
             <div className="three common">
               <h3 className="">Furniture and Home Appliances</h3>
-              <div className=" grid grid-cols-2">
+              <div className=" grid grid-cols-2 ">
                 {DisplayHome.map((prod) => {
                   return (
-                    <section className="set">
+                    <section className="set ">
                       <Link
                         to={`/product/${prod._id}`}
-                        className=" no-underline text-black"
+                        className=" no-underline   text-black"
                       >
                         <img src={prod.Image} alt={prod.Title} width={"20px"} />
                         <span className=" truncate">{prod.Title}</span>
@@ -182,11 +182,13 @@ function Home() {
             </div>
           </section>
         </section>
-        <div
-          className=" bg-[#E3E6E6] flex justify-center font-semibold border- cursor-pointer text-[20px]"
-          onClick={scrool}
-        >
-          Back to top
+        <div className=" bg-[#485769] flex justify-center    h-10 ">
+          <div
+            onClick={scrool}
+            className="text-white  font-semibold   text-[13px] cursor-pointer  my-auto"
+          >
+            Back to top
+          </div>
         </div>
       </div>
     </>

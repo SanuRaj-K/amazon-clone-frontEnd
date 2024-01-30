@@ -33,9 +33,8 @@ import ProductSpec from "./Pages/Admin/AdminProudcts/ProductSpec";
 import OrderDetails from "./Pages/Admin/AdminProudcts/OrderDetails";
 import OrderUser from "./Pages/Admin/AdminProudcts/OrderUser";
 import OrdersDetail from "./Pages/User/OrdersDetail";
-
-import "./App.css";
 import AdminChart from "./Pages/Admin/Chart/Chart";
+import "./App.css";
 export const myContext = createContext();
 function App() {
   const [data, setData] = useState([]);
@@ -48,6 +47,7 @@ function App() {
 
   useEffect(() => {
     const toastId = toast.loading("loading....");
+
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/users/products", {
         withCredentials: true,

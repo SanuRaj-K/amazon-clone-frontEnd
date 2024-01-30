@@ -42,7 +42,7 @@ function Cart() {
           prevCartItems.filter((item) => item._id !== prodId)
         );
         setCartCount(cartCount - 1);
-        toast.success("product removed0", { id: toastId });
+        toast.success("product removed", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
