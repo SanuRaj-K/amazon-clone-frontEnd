@@ -45,7 +45,7 @@ function CarouselDefault() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, slides.length]);
   return (
-    <div className=" max-w-[1400px] h-[780px] w-full m-auto    relative ">
+    <div className="  h-[780px]  w-full m-auto    relative ">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
         className=" w-full h-full   bg-center bg-cover duration-500"
