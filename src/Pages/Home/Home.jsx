@@ -28,7 +28,7 @@ function Home() {
       <div className="containerDiv">
         <CarouselDefault />
         <div className="  relative   bottom-[350px]">
-          <section className=" flex px-2  justify-between ">
+          <section className=" flex   justify-between ">
             <div className="one common">
               <h3 className=" 	">Pick up where you let off</h3>
 
