@@ -55,7 +55,7 @@ function App() {
       })
       .then((response) => {
         setData(response.data);
-        toast.success("fetched details", { id: toastId });
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);
