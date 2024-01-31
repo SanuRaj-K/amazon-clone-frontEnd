@@ -1,4 +1,4 @@
-#spotlight {
+/* #spotlight {
     width: 100%;
     background-size: 100vw 80vh;
     background-position: center;
@@ -7,7 +7,7 @@
     background-image: url('../../Assets/Images/Pictures/AF-Unrec-3000._CB570585186_.jpg');
 
 
-}
+} */
 
 .wrapper {
     display: flex;
@@ -30,8 +30,8 @@ div.common {
     width: 30vw;
     height: 50vh;
     margin-left: 10px;
-
-
+    border:  1px  ;
+    border-radius: 8px;
 
 }
 
@@ -112,8 +112,12 @@ section.list-bottom {
     align-content: center;
     background-color: #fff;
     height: 50vh;
-    
     margin-left: 20px;
     margin-right: 20px;
 
 }
+.containerDiv{
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative; /* Ensure container is positioned */
+  }

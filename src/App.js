@@ -35,6 +35,7 @@ import OrderUser from "./Pages/Admin/AdminProudcts/OrderUser";
 import OrdersDetail from "./Pages/User/OrdersDetail";
 import AdminChart from "./Pages/Admin/Chart/Chart";
 import "./App.css";
+import CarouselDefault from "./Pages/Home/CarouselDefault";
 export const myContext = createContext();
 function App() {
   const [data, setData] = useState([]);
@@ -97,6 +98,7 @@ function App() {
             <Route path="/orderspec/:id" element={<OrdersDetail />} />
             <Route path="/Category/:id" element={<Category />} />
             <Route path="/Category/sub/:id" element={<SubCategory />} />
+            <Route path="/carousal" element={<CarouselDefault />} />
             <Route path="/address" element={<Address />} />
           </Route>
           <Route path="/auth" element={<RegisterLayout />}>

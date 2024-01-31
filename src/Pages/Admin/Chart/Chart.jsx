@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardBody,
-  CardHeader,
-   
-} from "@material-tailwind/react";
+import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import Chart from "react-apexcharts";
 
 function AdminChart() {
@@ -15,7 +10,7 @@ function AdminChart() {
       {
         name: "Sales",
         data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-      }, 
+      },
     ],
     options: {
       chart: {
@@ -52,6 +47,9 @@ function AdminChart() {
           },
         },
         categories: [
+          "jan",
+          "feb",
+          "mar",
           "Apr",
           "May",
           "Jun",

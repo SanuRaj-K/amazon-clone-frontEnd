@@ -9,12 +9,14 @@ function Orders() {
   const [orderItems, setOrderItems] = useState([]);
 
   useEffect(() => {
-    const toastId= toast.loading('loading...')
+    const toastId = toast.loading("loading...");
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`
+      )
       .then((res) => {
         setOrderItems(res.data);
-        toast.success('successfully fetched order details',{id:toastId})
+        toast.success("successfully fetched order details", { id: toastId });
       })
       .catch((err) => {
         console.log(err);
@@ -89,7 +91,10 @@ function Orders() {
                         className="h-[73px] w-[64px]"
                       />
                       <div className=" flex flex-col ml-3 px-2">
-                        <Link to={`/product/${prod._id}`} className=" no-underline">
+                        <Link
+                          to={`/product/${prod._id}`}
+                          className=" no-underline"
+                        >
                           <span className="text-sky-500">{prod.Title}</span>
                         </Link>
                         <span className=" text-[12px] font-semibold">

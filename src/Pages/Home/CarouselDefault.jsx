@@ -1,38 +1,72 @@
- import { Carousel } from "@material-tailwind/react";
+import React, { useEffect, useState } from "react";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
-export function CarouselDefault() {
+import pic1 from "../../Assets/Images/sliders/4_3000pc._CB583023268_.jpg";
+import pic2 from "../../Assets/Images/sliders/5300-Kitchen---Hero-stripe-change--BAU-Adapt-3000-X-1200._CB583761349_.jpg";
+import pic3 from "../../Assets/Images/sliders/D92807365-_1_Tallhero_2xx._CB598669664_.jpg";
+import pic4 from "../../Assets/Images/sliders/Desktop_Hero_3000x1200_2copy2x._CB584609033_.jpg";
+import pic5 from "../../Assets/Images/sliders/pc_2x._CB584618827_.jpg";
+
+function CarouselDefault() {
+  const slides = [
+    { url: pic1 },
+    { url: pic2 },
+    { url: pic3 },
+    { url: pic4 },
+    { url: pic5 },
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [border, setBorder] = useState(false);
+  const [rightborder, setRightBorder] = useState(false);
+
+  const backSlide = () => {
+    const firstSlide = currentIndex === 0;
+    const newIndex = firstSlide ? slides.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+    setBorder(true);
+    setRightBorder(false);
+  };
+  const forwardSlide = () => {
+    const lastSlide = currentIndex === slides.length - 1;
+    const newIndex = lastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+    setRightBorder(true);
+    setBorder(false);
+  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      forwardSlide();
+      setBorder(false);
+      setRightBorder(false);
+    }, 3000);
+
+    return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex, slides.length]);
   return (
-    <Carousel
-      className="rounded-xl"
-      navigation={({ setActiveIndex, activeIndex, length }) => (
-        <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
-          {new Array(length).fill("").map((_, i) => (
-            <span
-              key={i}
-              className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
-              }`}
-              onClick={() => setActiveIndex(i)}
-            />
-          ))}
+    <div className=" max-w-[1400px] h-[780px] w-full m-auto    relative ">
+      <div
+        style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
+        className=" w-full h-full   bg-center bg-cover duration-500"
+      >
+        <div
+          className={` absolute top-[20%]   left-5 rounder-full p-2     cursor-pointer ${
+            border ? " outline " : ""
+          }`}
+        >
+          <BsChevronCompactLeft onClick={backSlide} size={50} />
         </div>
-      )}
-    >
-      <img
-        src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
-        alt="simage 1"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80"
-        alt="simage 2"
-        className="h-full w-full object-cover"
-      />
-      <img
-        src="https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80"
-        alt="simage 3"
-        className="h-full w-full object-cover"
-      />
-    </Carousel>
+        <div
+          className={` absolute top-[20%]   right-5   rounder-full p-2     cursor-pointer ${
+            rightborder ? "outline" : ""
+          }`}
+        >
+          <BsChevronCompactRight onClick={forwardSlide} size={50} />
+        </div>
+      </div>
+    </div>
   );
 }
+
+export default CarouselDefault;

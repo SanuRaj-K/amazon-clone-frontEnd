@@ -218,14 +218,14 @@ function Header() {
                     src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668206/Amazon/Icons/pqwekkflbh1vfgwbfufd.png"
                     alt="hamburg"
                   />
-                  <span>All</span>
+                  <span className="  ">All</span>
                 </li>
               </Link>
               <Link
                 to={`/category/${Fashion}`}
                 className=" text-white no-underline"
               >
-                <li className="mr-4">Fashion</li>
+                <li className="mr-4 ">Fashion</li>
               </Link>
               <Link
                 to={`/category/${Mobiles}`}
