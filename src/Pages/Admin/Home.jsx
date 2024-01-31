@@ -18,7 +18,7 @@ const AdminHomePage = () => {
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/stats")
       .then((res) => {
         setData(res.data);
-        toast.success("sucessfully fetched", { id: toastId });
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);
