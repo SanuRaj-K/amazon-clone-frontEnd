@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import Chart from "react-apexcharts";
+import axios from "axios";
 
 function AdminChart() {
+  const [chartData, setChartData] = useState({});
+  useEffect(() => {
+    axios
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/chart")
+      .then((res) => {
+        const data = res.data;
+        setChartData(data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
   const chartConfig = {
     type: "bar",
     height: 240,
     series: [
       {
         name: "Sales",
-        data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+        data: chartData.sales,
       },
     ],
     options: {
@@ -46,20 +57,7 @@ function AdminChart() {
             fontWeight: 400,
           },
         },
-        categories: [
-          "jan",
-          "feb",
-          "mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+        categories: chartData.month,
       },
       yaxis: {
         labels: {
