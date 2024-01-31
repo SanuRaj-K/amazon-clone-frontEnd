@@ -262,7 +262,7 @@ const AdminHomePage = () => {
           </>
         )}
 
-        <div className={`${toggle ? " w-[75vw]" : "hidden"}`}>
+        <div className={`${toggle ? " w-[75vw] mt-3" : "hidden"} mt`}>
           <Outlet />
         </div>
       </div>
