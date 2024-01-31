@@ -116,8 +116,4 @@ section.list-bottom {
     margin-right: 20px;
 
 }
-.containerDiv{
-    max-width: 1400px;
-    margin: 0 auto;
-    position: relative; /* Ensure container is positioned */
-  }
+ 

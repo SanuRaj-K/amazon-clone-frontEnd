@@ -25,7 +25,7 @@ function Home() {
   };
   return (
     <>
-      <div className="containerDiv">
+      <div className="">
         <CarouselDefault />
         <div className="  relative   bottom-[350px]">
           <section className=" flex   justify-between ">
