@@ -11,11 +11,13 @@ function UserSpec() {
   const address = formData.address;
 
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getuser/${id}`)
       .then((res) => {
         const data = res.data;
         setFormData(data);
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);
@@ -25,7 +27,9 @@ function UserSpec() {
   const removeAccount = (e) => {
     e.preventDefault();
     axios
-      .delete(`https://amazon-clone-backend-fz8l.onrender.com/admin/deleteuser/${id}`)
+      .delete(
+        `https://amazon-clone-backend-fz8l.onrender.com/admin/deleteuser/${id}`
+      )
       .then((res) => {
         console.log(res);
         toast.success("User removed");

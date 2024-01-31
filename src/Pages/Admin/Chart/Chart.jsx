@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardHeader } from "@material-tailwind/react";
 import Chart from "react-apexcharts";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 function AdminChart() {
   const [chartData, setChartData] = useState({});
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/chart")
       .then((res) => {
         const data = res.data;
         setChartData(data);
+        toast.remove(toastId);
       })
       .catch((err) => console.log(err));
   }, []);

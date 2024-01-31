@@ -11,9 +11,7 @@ function OrderDetails() {
       .get("https://amazon-clone-backend-fz8l.onrender.com/admin/orderdetails")
       .then((res) => {
         setOrderItems(res.data);
-        toast.success("successfully fetched product order details", {
-          id: toastId,
-        });
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);

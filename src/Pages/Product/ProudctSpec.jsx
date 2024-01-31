@@ -18,10 +18,12 @@ function ProudctSpec() {
   const Electronics = product.Category === "Electronics";
 
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get(`https://amazon-clone-backend-fz8l.onrender.com/users/product/${id}`)
       .then((res) => {
         setProduct(res.data);
+        toast.remove(toastId);
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -49,7 +51,7 @@ function ProudctSpec() {
           });
       }
     } else {
-      toast.error("login required",{id:toastId});
+      toast.error("login required", { id: toastId });
     }
   };
 

@@ -15,6 +15,7 @@ function Account() {
   const userId = localUser._id;
 
   useEffect(() => {
+    
     axios
       .get(`http://localhost:3005/users/getuser/${userId}`)
       .then((res) => {

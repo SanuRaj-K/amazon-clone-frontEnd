@@ -10,10 +10,14 @@ function ProductSpec() {
 
   const [product, setProduct] = useState({});
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getproduct/${id}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/admin/getproduct/${id}`
+      )
       .then((res) => {
         setProduct(res.data);
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +35,10 @@ function ProductSpec() {
     e.preventDefault();
     const toastId = toast.loading("updating product...");
     axios
-      .put("https://amazon-clone-backend-fz8l.onrender.com/admin/updateproduct", product)
+      .put(
+        "https://amazon-clone-backend-fz8l.onrender.com/admin/updateproduct",
+        product
+      )
       .then((res) => {
         if (res.status === 200) {
           history("/admin/products");
@@ -49,12 +56,14 @@ function ProductSpec() {
   const handleDelete = (e, product) => {
     e.preventDefault();
     axios
-      .delete(`https://amazon-clone-backend-fz8l.onrender.com/admin/deleteproduct/${product._id}`)
+      .delete(
+        `https://amazon-clone-backend-fz8l.onrender.com/admin/deleteproduct/${product._id}`
+      )
       .then((res) => {
-        if(res.data==='ok'){
+        if (res.data === "ok") {
           history("/admin/products");
-          toast.success('product deleted ')
-        };
+          toast.success("product deleted ");
+        }
       })
       .catch((err) => {
         console.log(err);
