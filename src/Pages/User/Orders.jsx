@@ -7,7 +7,7 @@ import { myContext } from "../../App";
 function Orders() {
   const { id } = useParams();
 
-  const { setOrderItems } = useContext(myContext);
+  const {orderItems, setOrderItems } = useContext(myContext);
 
   useEffect(() => {
     const toastId = toast.loading("loading...");
@@ -22,7 +22,7 @@ function Orders() {
       .catch((err) => {
         console.log(err);
       });
-  }, [id, setOrderItems]);
+  }, [id, setOrderItems,orderItems]);
 
   return (
     <div>
