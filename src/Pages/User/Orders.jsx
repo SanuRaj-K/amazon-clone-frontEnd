@@ -22,8 +22,7 @@ function Orders() {
       .catch((err) => {
         console.log(err);
       });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, orderItems]);
+  }, [id, setOrderItems]);
 
   return (
     <div>
