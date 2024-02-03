@@ -11,6 +11,7 @@ function Cart() {
   const { cartCount, setCartCount } = useContext(myContext);
   const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
+    const toastId = toast.loading("loading...");
     axios
       .get(
         `https://amazon-clone-backend-fz8l.onrender.com/users/viewcart/${id}`,
@@ -27,6 +28,7 @@ function Cart() {
           0
         );
         setTotalPrice(p.toFixed(2));
+        toast.remove(toastId);
       })
       .catch((err) => console.log(err));
   }, [id, cartCount, setCartItems, cartItems]);

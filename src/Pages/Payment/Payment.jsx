@@ -95,13 +95,21 @@ function Payment() {
       history(`/orders/${id}`);
     }
   };
-
+ 
   const handleCard = async (e) => {
     e.preventDefault();
-    const stripe = await loadStripe(process.env.STRIPE_KEY);
-
+    const stripe = await loadStripe(process.env.REACT_APP_STRIPE_KEY);
+    const order = {
+      cart: orderItems,
+      orderId: orderId,
+      orderDate: date,
+      status: "pending",
+      totalPrice: finalPrice === "0.00" ? formattedTotalPrice : finalPrice,
+       
+      
+    };
     axios
-      .post("https://amazon-clone-backend-fz8l.onrender.com/users/createpayment", { paymentUser, id })
+      .post("https://amazon-clone-backend-fz8l.onrender.com/users/createpayment", { paymentUser, id, order })
       .then((res) => {
         console.log(res);
         stripe.redirectToCheckout({

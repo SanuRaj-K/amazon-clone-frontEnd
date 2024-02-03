@@ -12,15 +12,17 @@ function Orders() {
   useEffect(() => {
     const toastId = toast.loading("loading...");
     axios
-      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`)
+      .get(
+        `https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`
+      )
       .then((res) => {
         setOrderItems(res.data);
-        toast.success("successfully fetched order details", { id: toastId });
+        toast.remove(toastId);
       })
       .catch((err) => {
         console.log(err);
       });
-    }, [id, setOrderItems]);
+  }, [id, setOrderItems]);
 
   return (
     <div>
@@ -45,10 +47,7 @@ function Orders() {
         <div className=" font-semibold text-sky-500  mt-3 ml-2">
           <span className=" cursor-pointer ml-5">
             {" "}
-            <Link
-              to={`/orders/${id}`}
-              className=" no-underline text-sky-500"
-            >
+            <Link to={`/orders/${id}`} className=" no-underline text-sky-500">
               Orders
             </Link>
           </span>
