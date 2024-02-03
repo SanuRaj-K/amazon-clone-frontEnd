@@ -1,19 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
+import { myContext } from "../../App";
 
 function Orders() {
   const { id } = useParams();
 
-  const [orderItems, setOrderItems] = useState([]);
+  const { setOrderItems } = useContext(myContext);
 
   useEffect(() => {
     const toastId = toast.loading("loading...");
     axios
-      .get(
-        `https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`
-      )
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getorders/${id}`)
       .then((res) => {
         setOrderItems(res.data);
         toast.success("successfully fetched order details", { id: toastId });
@@ -21,14 +20,15 @@ function Orders() {
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [id]);
 
   return (
     <div>
       <div className="px-[50px] mt-3">
         <div className="flex justify-between">
           <div>
-            <span className=" font-semibold text-[24px]">Your Orders</span>
+            <span className=" font-semibold text-[24px]"> Your Orders</span>
           </div>
           <div>
             <input
@@ -44,90 +44,125 @@ function Orders() {
           </div>
         </div>
         <div className=" font-semibold text-sky-500  mt-3 ml-2">
-          <span className="ml-5">Orders</span>
-          <span className="ml-5">Buy Again</span>
-          <span className="ml-5">Not Yet Shipped</span>
-          <span className="ml-5">Cancelled Orders</span>
+          <span className=" cursor-pointer ml-5">
+            {" "}
+            <Link
+              to={`/orders/${id}`}
+              className=" no-underline text-sky-500"
+            >
+              Orders
+            </Link>
+          </span>
+          <span className=" cursor-pointer ml-5">
+            {" "}
+            <Link to={"/products"} className=" no-underline text-sky-500">
+              Buy Again
+            </Link>{" "}
+          </span>
+          <span className=" cursor-pointer ml-5">
+            {" "}
+            <Link
+              to={`/orders/${id}/Pending`}
+              className=" no-underline text-sky-500"
+            >
+              Not Yet Shipped{" "}
+            </Link>
+          </span>
+          <span className=" cursor-pointer ml-5">Cancelled Orders</span>
         </div>
         <hr />
-        {orderItems.map((prod) => {
-          const dateString = prod.orderDate;
-          const dateObject = new Date(dateString);
-          const formattedDate = dateObject.toLocaleDateString();
 
-          return (
-            <div className="border rounded-lg mb-4 " key={prod._id}>
-              <div className=" bg-gray-300  flex rounded-t-lg justify-between p-3">
-                <div className="flex justify-between w-[250px] px-3 text-gray-500 font-semibold">
-                  <div className=" ">
-                    <span>order placed</span> <br />
-                    <span>{formattedDate}</span>
+        {/* {orderItems.length > 0 ? (
+          orderItems.map((prod) => {
+            const dateString = prod.orderDate;
+            const dateObject = new Date(dateString);
+            const formattedDate = dateObject.toLocaleDateString();
+
+            return (
+              <div className="border rounded-lg mb-4 " key={prod._id}>
+                <div className=" bg-gray-300  flex rounded-t-lg justify-between p-3">
+                  <div className="flex justify-between w-[250px] px-3 text-gray-500 font-semibold">
+                    <div className=" ">
+                      <span>order placed</span> <br />
+                      <span>{formattedDate}</span>
+                    </div>
+                    <span>
+                      <span>total</span> <br />
+                      <span>₹{prod.totalPrice.toLocaleString()}</span>
+                    </span>
                   </div>
-                  <span>
-                    <span>total</span> <br />
-                    <span>₹{prod.totalPrice.toLocaleString()}</span>
-                  </span>
-                </div>
-                <div className="flex justify-between w-[250px] text-gray-500 font-semibold">
-                  <span className="text-gray-500 "> {prod.orderId}</span> <br />
-                  <div className="text-[#4d5fe8] px-3">
-                    <span className="  ">
-                      <Link to={`/orderspec/${prod.orderId}`}>
-                        View order details
-                      </Link>
-                    </span> 
-                    <br />
-                    <span>{prod.orderId}</span>
-                  </div>
-                </div>
-              </div>
-              {prod.items.map((prod) => {
-                return (
-                  <div className="flex justify-between p-3 " key={prod._id}>
-                    <div className="flex ml-5  ">
-                      <img
-                        src={prod.Image}
-                        alt={prod.Title}
-                        className="h-[73px] w-[64px]"
-                      />
-                      <div className=" flex flex-col ml-3 px-2">
-                        <Link
-                          to={`/product/${prod._id}`}
-                          className=" no-underline"
-                        >
-                          <span className="text-sky-500">{prod.Title}</span>
+                  <div className=" w-[250px] text-gray-500 font-semibold">
+                    <div className="text-[#4d5fe8] px-3">
+                      <span className=" ml-10 ">
+                        <Link to={`/orderspec/${prod.orderId}`}>
+                          View order details
                         </Link>
-                    <span className=" text-[12px] font-semibold">
-                          status:
-                        </span>
-                        <span className=" text-[12px] font-semibold">
-                          Lorem, ipsum.
-                        </span>
+                      </span>
+                      <br />
+                    </div>
+                  </div>
+                </div>
+                {prod.items.map((prod) => {
+                  return (
+                    <div className="flex justify-between p-3 " key={prod._id}>
+                      <div className="flex ml-5  ">
+                        <img
+                          src={prod.Image}
+                          alt={prod.Title}
+                          className="h-[73px] w-[64px]"
+                        />
+                        <div className=" flex flex-col ml-3 px-2">
+                          <Link
+                            to={`/product/${prod._id}`}
+                            className=" no-underline"
+                          >
+                            <span className="text-sky-500">{prod.Title}</span>
+                          </Link>
+                          <span className=" text-[12px] font-semibold">
+                            status:
+                          </span>
+                          <span className=" text-[12px] font-semibold">
+                            Lorem, ipsum.
+                          </span>
+                        </div>
+                      </div>
+
+                      <div>
+                        <button className=" text-[12px] w-[170px] border px-3 py-1 rounded-md shadow-sm font-semibold mb-1">
+                          Content and devices
+                        </button>{" "}
+                        <br />
+                        <button className=" text-[12px] w-[170px] border px-3 py-1 rounded-md shadow-sm font-semibold">
+                          write a product review
+                        </button>
                       </div>
                     </div>
+                  );
+                })}
 
-                    <div>
-                      <button className=" text-[12px] w-[170px] border px-3 py-1 rounded-md shadow-sm font-semibold mb-1">
-                        Content and devices
-                      </button>{" "}
-                      <br />
-                      <button className=" text-[12px] w-[170px] border px-3 py-1 rounded-md shadow-sm font-semibold">
-                        write a product review
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-         
-              <hr />
-              <div className="h-[30px]">
-                <span className="text-sky-500 px-3 py-2 mb-3">
-                  Archive order 
-                </span>
+                <hr />
+                <div className="h-[30px]">
+                  <span className="text-sky-500 px-3 py-2 mb-3">
+                    Archive order
+                  </span>
+                </div>
               </div>
+            );
+          })
+        ) : (
+          <div>
+            <div className=" h-[50vh]">
+              <h1 className="flex justify-center text-[24px]">
+                You don't have any Orders...{" "}
+                <Link to={"/products"} className="mx-[10px]">
+                  Click Here{" "}
+                </Link>{" "}
+                to Continue Shopping
+              </h1>
             </div>
-          );
-        })}
+          </div>
+        )} */}
+        <Outlet />
       </div>
     </div>
   );

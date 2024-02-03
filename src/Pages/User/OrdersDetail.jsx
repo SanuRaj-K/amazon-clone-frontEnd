@@ -6,6 +6,7 @@ function OrdersDetail() {
   const [data, setData] = useState({});
   const [address, setAddress] = useState({});
   const { id } = useParams();
+  console.log(id);
 
   useEffect(() => {
     axios

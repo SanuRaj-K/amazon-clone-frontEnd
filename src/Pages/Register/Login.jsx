@@ -64,7 +64,7 @@ function Login() {
             <input
               type="text"
               name="email"
-              id="email"
+              id="email"           
               placeholder="First and last name"
               className="border  rounded-r-md w-[100%] p-[2px]"
               onChange={handleChange}

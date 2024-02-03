@@ -18,7 +18,7 @@ function Products() {
         <span>
           Total <b>{data.length}</b> result items of <b> "All Products"</b>
         </span>
-        <div className="flex bg-[#F0F2F2] mr-2 w-[120px]  justify-center rounded-[17px] h-[24px]     ">
+        {/* <div className="flex bg-[#F0F2F2] mr-2 w-[120px]  justify-center rounded-[17px] h-[24px]     ">
           <div>sort by</div>
           <img
             src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668207/Amazon/Icons/magqlukopaj59vya0y6k.svg"
@@ -26,7 +26,7 @@ function Products() {
             height={"15px"}
             width={"15px"}
           />
-        </div>
+        </div> */}
       </nav>
       <div className="flex justify-between w-full">
         <div className="ml-[12px] w-[15vw]">

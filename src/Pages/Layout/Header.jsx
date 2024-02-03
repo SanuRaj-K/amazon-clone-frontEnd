@@ -81,7 +81,7 @@ function Header() {
     <div className=" ">
       <div className=" w-full ">
         <div>
-          <nav className=" bg-[#131921] text-white text-[12px] px-3 w-full flex justify-between items-center content-center">
+          <nav className=" bg-[#131921]  text-white text-[12px] px-3 h-16 w-full flex justify-between items-center content-center">
             <div className="flex justify-between items-center  ">
               <Link to={"/"}>
                 <img
@@ -199,7 +199,7 @@ function Header() {
                         <span className="font-semibold">& Orders</span>
                       </Link>
                     </li>
-                    <li className="w-[30px] mb-3   ">
+                    <li className="w-[30px] mb-3 ml-3   ">
                       <Link
                         to={`/cart/${authUser._id}`}
                         className="text-[#fff] no-underline"

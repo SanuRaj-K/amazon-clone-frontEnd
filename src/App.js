@@ -36,6 +36,8 @@ import OrdersDetail from "./Pages/User/OrdersDetail";
 import AdminChart from "./Pages/Admin/Chart/Chart";
 import "./App.css";
 import CarouselDefault from "./Pages/Home/CarouselDefault";
+import OrderedItmes from "./Pages/User/OrderedItems";
+import PendingOrders from "./Pages/User/PendingOrders";
 export const myContext = createContext();
 function App() {
   const [data, setData] = useState([]);
@@ -45,6 +47,7 @@ function App() {
   const userToken = localStorage.getItem("loginToken");
   const [cartCount, setCartCount] = useState(0);
   const [toggle, setToggle] = useState(false);
+  const [orderItems, setOrderItems] = useState([]);
 
   useEffect(() => {
     const toastId = toast.loading("loading....");
@@ -78,6 +81,8 @@ function App() {
           setauthUser,
           loginUser,
           setLoginUser,
+          orderItems,
+          setOrderItems,
           cartCount,
           setCartCount,
           address,
@@ -93,7 +98,10 @@ function App() {
             <Route path="/Products" element={<Products />} />
             <Route path="/Product/:id" element={<ProudctSpec />} />
             <Route path="/cart/:id" element={<Cart />} />
-            <Route path="/orders/:id" element={<Orders />} />
+            <Route path="/orders/:id" element={<Orders />}>
+              <Route index element={<OrderedItmes />} />
+              <Route path="/orders/:id/Pending" element={<PendingOrders />} />
+            </Route>
             <Route path="/orderspec/:id" element={<OrdersDetail />} />
             <Route path="/Category/:id" element={<Category />} />
             <Route path="/Category/sub/:id" element={<SubCategory />} />
