@@ -13,7 +13,7 @@ function Cart() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:3005/users/viewcart/${id}`,
+        `https://amazon-clone-backend-fz8l.onrender.com/users/viewcart/${id}`,
         {
           withCredentials: true,
         }
@@ -35,7 +35,7 @@ function Cart() {
     const toastId = toast.loading("removing...");
     axios
       .delete(
-        `http://localhost:3005/users/removecart/${id}/${prodId}`
+        `https://amazon-clone-backend-fz8l.onrender.com/users/removecart/${id}/${prodId}`
       )
       .then((res) => {
         setCartItems((prevCartItems) =>
@@ -54,7 +54,7 @@ function Cart() {
     const quantity = e.target.value;
     axios
       .put(
-        `http://localhost:3005/users/handleqty/${id}/${prodId}`,
+        `https://amazon-clone-backend-fz8l.onrender.com/users/handleqty/${id}/${prodId}`,
         {
           quantity: quantity,
         }

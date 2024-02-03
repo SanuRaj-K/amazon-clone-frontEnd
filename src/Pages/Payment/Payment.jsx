@@ -21,7 +21,7 @@ function Payment() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3005/users/payment/${id}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/payment/${id}`)
       .then((res) => {
         setUserName(res.data.username);
         setPaymentUser(res.data.cart);
@@ -84,7 +84,7 @@ function Payment() {
         
       };
       axios
-        .post("http://localhost:3005/users/cod", { order, id })
+        .post("https://amazon-clone-backend-fz8l.onrender.com/users/cod", { order, id })
         .then((res) => {
           console.log(res);
         })
@@ -101,7 +101,7 @@ function Payment() {
     const stripe = await loadStripe(process.env.STRIPE_KEY);
 
     axios
-      .post("http://localhost:3005/users/createpayment", { paymentUser, id })
+      .post("https://amazon-clone-backend-fz8l.onrender.com/users/createpayment", { paymentUser, id })
       .then((res) => {
         console.log(res);
         stripe.redirectToCheckout({

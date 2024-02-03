@@ -12,9 +12,7 @@ function OrderUser() {
   useEffect(() => {
     const toastId = toast.loading("loading...");
     axios
-      .get(
-        `https://amazon-clone-backend-fz8l.onrender.com/admin/getuserorders/${id}`
-      )
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/admin/getuserorders/${id}`)
       .then((res) => {
         setUserData(res.data);
         setStatus(res.data.status);
@@ -35,9 +33,7 @@ function OrderUser() {
   const updateStatus = () => {
     const toastId = toast.loading("loading...");
     axios
-      .put(
-        `https://amazon-clone-backend-fz8l.onrender.com/admin/updatestatus/${id}/${status}`
-      )
+      .put(`https://amazon-clone-backend-fz8l.onrender.com/admin/updatestatus/${id}/${status}`)
       .then((res) => {
         console.log(res);
         toast.success("updated...", { id: toastId });
