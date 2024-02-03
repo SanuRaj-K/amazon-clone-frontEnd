@@ -7,7 +7,7 @@ import { myContext } from "../../App";
 function Orders() {
   const { id } = useParams();
 
-  const {orderItems, setOrderItems } = useContext(myContext);
+  const { orderItems, setOrderItems } = useContext(myContext);
 
   useEffect(() => {
     const toastId = toast.loading("loading...");
@@ -22,7 +22,8 @@ function Orders() {
       .catch((err) => {
         console.log(err);
       });
-  }, [id, setOrderItems,orderItems]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id, orderItems]);
 
   return (
     <div>
