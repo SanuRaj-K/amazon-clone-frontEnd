@@ -72,12 +72,12 @@ function Orders() {
                   <span className="text-gray-500 "> {prod.orderId}</span> <br />
                   <div className="text-[#4d5fe8] px-3">
                     <span className="  ">
-                      <Link to={`/orderspec/${prod._id}`}>
+                      <Link to={`/orderspec/${prod.orderId}`}>
                         View order details
                       </Link>
-                    </span>{" "}
+                    </span> 
                     <br />
-                    <span>{prod._id}</span>
+                    <span>{prod.orderId}</span>
                   </div>
                 </div>
               </div>
@@ -97,7 +97,7 @@ function Orders() {
                         >
                           <span className="text-sky-500">{prod.Title}</span>
                         </Link>
-                        <span className=" text-[12px] font-semibold">
+                    <span className=" text-[12px] font-semibold">
                           status:
                         </span>
                         <span className=" text-[12px] font-semibold">
@@ -118,11 +118,11 @@ function Orders() {
                   </div>
                 );
               })}
-
+         
               <hr />
               <div className="h-[30px]">
                 <span className="text-sky-500 px-3 py-2 mb-3">
-                  Archive order
+                  Archive order 
                 </span>
               </div>
             </div>

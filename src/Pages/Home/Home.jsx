@@ -35,7 +35,7 @@ function Home() {
               <div className=" grid grid-cols-2">
                 {DisplayFurniture.map((prod) => {
                   return (
-                    <section className="set">
+                    <section className="set" key={prod._id}>
                       <Link
                         to={`/product/${prod._id}`}
                         className=" no-underline text-black"
@@ -53,7 +53,7 @@ function Home() {
               <div className=" grid grid-cols-2">
                 {DisplayMob.map((prod) => {
                   return (
-                    <section className="set">
+                    <section className="set" key={prod._id }>
                       <Link
                         to={`/product/${prod._id}`}
                         className=" no-underline text-black"
@@ -71,7 +71,7 @@ function Home() {
               <div className=" grid grid-cols-2 ">
                 {DisplayHome.map((prod) => {
                   return (
-                    <section className="set ">
+                    <section className="set " key={prod._id}>
                       <Link
                         to={`/product/${prod._id}`}
                         className=" no-underline   text-black"
@@ -89,7 +89,7 @@ function Home() {
               <div className=" grid grid-cols-2">
                 {DisplayElc.map((prod) => {
                   return (
-                    <section className="set">
+                    <section className="set" key={prod._id}>
                       <Link
                         to={`/product/${prod._id}`}
                         className=" no-underline text-black"
@@ -113,9 +113,12 @@ function Home() {
               <div className=" flex w-full justify-evenly">
                 {dealsData.map((prod) => {
                   return (
-                    <div class="  cursor-pointer relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-[200px]">
-                      <div class="h-auto overflow-hidden">
-                        <div class="h-44 overflow-hidden relative">
+                    <div
+                      key={prod._id}
+                      className="  cursor-pointer relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-[200px]"
+                    >
+                      <div className="h-auto overflow-hidden">
+                        <div className="h-44 overflow-hidden relative">
                           <img
                             src={prod.Image}
                             alt={prod.Title}
@@ -123,17 +126,17 @@ function Home() {
                           />
                         </div>
                       </div>
-                      <div class="bg-white py-4 px-3">
+                      <div className="bg-white py-4 px-3">
                         <Link
                           to={`/product/${prod._id}`}
                           className=" no-underline text-black"
                         >
-                          <h3 class="text-xs mb-2 font-medium truncate">
+                          <h3 className="text-xs mb-2 font-medium truncate">
                             {prod.Title}
                           </h3>
                         </Link>
-                        <div class="flex justify-between items-center">
-                          <p class="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
+                        <div className="flex justify-between items-center">
+                          <p className="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
                             Deal of the Day
                           </p>
                         </div>
@@ -151,9 +154,12 @@ function Home() {
               <div className=" flex w-full justify-evenly">
                 {dealsElectronics.map((prod) => {
                   return (
-                    <div class="  cursor-pointer relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-[200px]">
-                      <div class="h-auto overflow-hidden">
-                        <div class="h-44 overflow-hidden bg-white flex justify-center relative">
+                    <div
+                      key={prod._id}
+                      className="  cursor-pointer relative flex flex-col shadow-md rounded-xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 w-[200px]"
+                    >
+                      <div className="h-auto overflow-hidden">
+                        <div className="h-44 overflow-hidden bg-white flex justify-center relative">
                           <img
                             src={prod.Image}
                             alt={prod.Title}
@@ -161,17 +167,17 @@ function Home() {
                           />
                         </div>
                       </div>
-                      <div class="bg-white py-4 px-3">
+                      <div className="bg-white py-4 px-3">
                         <Link
                           to={`/product/${prod._id}`}
                           className=" no-underline text-black"
                         >
-                          <h3 class="text-xs mb-2 font-medium truncate">
+                          <h3 className="text-xs mb-2 font-medium truncate">
                             {prod.Title}
                           </h3>
                         </Link>
-                        <div class="flex justify-between items-center">
-                          <p class="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
+                        <div className="flex justify-between items-center">
+                          <p className="text-xs font-semibold text-white mt-3  bg-red-600 px-2 py-1 rounded-md">
                             Most loved
                           </p>
                         </div>

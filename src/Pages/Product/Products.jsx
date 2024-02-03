@@ -6,7 +6,7 @@ function Products() {
   const { data } = useContext(myContext);
 
   // const handleCart=()=>{
-  //   // axios.post("http://localhost:3005/users/addtocart",)
+  //   // axios.post("https://amazon-clone-backend-fz8l.onrender.com/users/addtocart",)
   // }
   const Fashion = "Fashion";
   const Mobiles = "Mobiles";

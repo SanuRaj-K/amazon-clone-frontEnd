@@ -58,7 +58,7 @@ function Payment() {
 
   const generateOrderId = () => {
     const timestamp = Date.now();
-    return `ORDER_${timestamp}`;
+    return `${timestamp}`;
   };
   const orderId = generateOrderId();
   const date = new Date(todayDate.toLocaleString());
@@ -81,6 +81,7 @@ function Payment() {
         status: "pending",
         totalPrice: finalPrice === "0.00" ? formattedTotalPrice : finalPrice,
         userId: id,
+        
       };
       axios
         .post("https://amazon-clone-backend-fz8l.onrender.com/users/cod", { order, id })

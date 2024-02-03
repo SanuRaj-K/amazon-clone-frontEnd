@@ -33,7 +33,7 @@ function OrdersDetail() {
               </span>{" "}
               <br /> <hr />
               <span>
-                ID: &nbsp;{data._id} <br />{" "}
+                ID: &nbsp;{data.orderId} <br />{" "}
                 <span>Order Date: &nbsp;{formattedDate}</span>
               </span>
             </div>

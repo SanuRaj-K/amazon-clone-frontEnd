@@ -61,7 +61,7 @@ function Header() {
   const handleAccount = () => {
     if (loginToken) {
       // axios
-      //   .post("http://localhost:3005/users/getuser", userData)
+      //   .post("https://amazon-clone-backend-fz8l.onrender.com/users/getuser", userData)
       //   .then((res) => console.log(res))
       //   .catch((err) => console.log(err));
       history("/account");
@@ -78,145 +78,158 @@ function Header() {
   };
 
   return (
-    <div className="">
-      <div className="">
-        <nav className=" flex justify-between text-white items-center pt-2 h-[60px] text-[12px] bg-black   cursor-pointer">
-          <div className="flex justify-between ml-3 ">
-            <Link to={"/"}>
-              <img
-                src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668202/Amazon/Logo/m8zmfr24ttisqyu0ouw1.png"
-                alt="logo"
-              />
-            </Link>
+    <div className=" ">
+      <div className=" w-full ">
+        <div>
+          <nav className=" bg-[#131921] text-white text-[12px] px-3 w-full flex justify-between items-center content-center">
+            <div className="flex justify-between items-center  ">
+              <Link to={"/"}>
+                <img
+                  src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668202/Amazon/Logo/m8zmfr24ttisqyu0ouw1.png"
+                  alt="logo"
+                />
+              </Link>
 
-            <div className="flex justify-between ml-[20px]">
-              <img
-                src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668205/Amazon/Icons/uqrch72rkmss6rys5l79.png"
-                alt="location"
-                className="h-[25px] w-[18px]"
-              />
-              &nbsp;&nbsp;
-              <span>
-                {!place ? (
-                  <p>
-                    Hello <br />
-                    Select your location
-                  </p>
-                ) : (
-                  <p>
-                    Deliver to <br />
-                    <b className="text-[13px]">{place.place}</b>
-                  </p>
-                )}
-              </span>
-            </div>
-          </div>
-          <div className="center ml-5">
-            <div className="pre-div">
-              All &nbsp;{" "}
-              <img
-                src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668207/Amazon/Icons/magqlukopaj59vya0y6k.svg"
-                alt="arrow"
-              />
-            </div>
-            <input
-              className="text-[#000]"
-              type="text"
-              name="search"
-              id="search"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search on Amazon.in"
-            />
-            <div className="search">
-              <img
-                src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668206/Amazon/Icons/uqpokcytmbcsua4edrtp.png"
-                alt="search"
-              />
-            </div>
-          </div>
-          <div className="">
-            <ul className="flex justify-between text-center items-center mt-2 ">
-              <li className="mr-[30px]">
-                <div className="flagItems">
-                  <img
-                    src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668171/Amazon/Pictures/cysqfup3xrsclamko9ie.png"
-                    alt="indian flag"
-                  />
-                  <span>EN</span>
-                  <img
-                    src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668207/Amazon/Icons/magqlukopaj59vya0y6k.svg"
-                    alt="downArrow"
-                  />
-                </div>
-              </li>
-              <li className="cursor-pointer mr-[30px]" onClick={handleAccount}>
-                <span>
-                  {" "}
-                  Hello,{" "}
-                  {loginToken ? (
-                    <span>{userData.id}</span>
+              <div className="flex justify-between  ml-[20px]">
+                <img
+                  src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668205/Amazon/Icons/uqrch72rkmss6rys5l79.png"
+                  alt="location"
+                  className="h-[25px] w-[18px]"
+                />
+                &nbsp;&nbsp;
+                <span className=" ">
+                  {!place ? (
+                    <p>
+                      Hello <br />
+                      Select your location
+                    </p>
                   ) : (
-                    <span>Signin</span>
+                    <p>
+                      Deliver to <br />
+                      <b className="text-[13px]">{place.place}</b>
+                    </p>
                   )}
-                </span>{" "}
-                <br />
-                <span className="font-semibold">Account & Lists</span>
-              </li>
+                </span>
+              </div>
+            </div>
+            <div className="flex justify-between items-center w-[600px]  h-[60px]  ">
+              <div className=" text-[12px] flex px-1 rounded-l-md  bg-[#E6E6E6] h-[40px]  items-center justify-center   ">
+                <span className=" text-[#555555]">All </span>
+                <img
+                  src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668207/Amazon/Icons/magqlukopaj59vya0y6k.svg"
+                  alt="arrow"
+                  className=" h-[15px] w-[15px]"
+                />
+              </div>
+              <input
+                className="text-[#000] w-full h-[40px] focus:outline-none"
+                type="text"
+                name="search"
+                id="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search on Amazon.in"
+              />
+              <div className=" flex items-center bg-[#FEBD69] rounded-r-md  w-[45px] h-[40px] ">
+                <img
+                  src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668206/Amazon/Icons/uqpokcytmbcsua4edrtp.png"
+                  alt="search"
+                  className="  mx-auto"
+                />
+              </div>
+            </div>
+            <div className="">
+              <ul className="flex justify-between text-center items-center mt-2 ">
+                <li className="mr-[30px]">
+                  <div className="flex items-center ">
+                    <img
+                      src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668171/Amazon/Pictures/cysqfup3xrsclamko9ie.png"
+                      alt="indian flag"
+                      className=" mr-1"
+                    />
+                    <span className=" font-semibold">EN</span>
+                    <img
+                      src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668207/Amazon/Icons/magqlukopaj59vya0y6k.svg"
+                      alt="downArrow"
+                      className=" "
+                    />
+                  </div>
+                </li>
+                <li
+                  className="cursor-pointer mr-[30px]"
+                  onClick={handleAccount}
+                >
+                  <span>
+                    {" "}
+                    Hello,{" "}
+                    {loginToken ? (
+                      <span>{userData.id}</span>
+                    ) : (
+                      <span>Signin</span>
+                    )}
+                  </span>{" "}
+                  <br />
+                  <span className="font-semibold">Account & Lists</span>
+                </li>
 
-              {!loginToken ? (
-                <>
-                  <li className="w-[30px] mb-3 mr-[20px] " onClick={handleCart}>
-                    <span className="relative left-1 top-2 text-[#F07916]">
-                      {cartCount ? cartCount : null}
-                    </span>
-                    <img src={cart} alt="CartButton" className="cart" />
-                  </li>
-                  <li className="mr-[30px]">
-                    <span>Returns</span> <br />
-                    <span className="font-semibold">& Orders</span>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li className=" mr-[22px] ">
-                    <Link
-                      to={`/orders/${authUser._id}`}
-                      className="text-[#fff] no-underline"
-                    >
-                      <span>Returns</span> <br />
-                      <span className="font-semibold">& Orders</span>
-                    </Link>
-                  </li>
-                  <li className="w-[30px] mb-3 mr-[20px] ">
-                    <Link
-                      to={`/cart/${authUser._id}`}
-                      className="text-[#fff] no-underline"
+                {!loginToken ? (
+                  <>
+                    <li
+                      className="w-[30px] mb-3 mr-[20px] "
+                      onClick={handleCart}
                     >
                       <span className="relative left-1 top-2 text-[#F07916]">
-                        {cartCount}
+                        {cartCount ? cartCount : null}
                       </span>
                       <img src={cart} alt="CartButton" className="cart" />
-                    </Link>
-                  </li>
-                </>
-              )}
-            </ul>
-          </div>
-        </nav>
+                    </li>
+                    <li className="">
+                      <span>Returns</span> <br />
+                      <span className="font-semibold">& Orders</span>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li className="   ">
+                      <Link
+                        to={`/orders/${authUser._id}`}
+                        className="text-[#fff] no-underline"
+                      >
+                        <span>Returns</span> <br />
+                        <span className="font-semibold">& Orders</span>
+                      </Link>
+                    </li>
+                    <li className="w-[30px] mb-3   ">
+                      <Link
+                        to={`/cart/${authUser._id}`}
+                        className="text-[#fff] no-underline"
+                      >
+                        <span className="relative left-1 top-2 text-[#F07916]">
+                          {cartCount}
+                        </span>
+                        <img src={cart} alt="CartButton" className="cart" />
+                      </Link>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
+          </nav>
+        </div>
 
-        <div>
-          <div className="flex justify-between items-center text-[15px]  text-white bg-[#131921]">
-            <ul className="flex text-center items-center cursor-pointer">
+        <div className=" w-full">
+          <div className="flex px-3 justify-between   h-[40px]   text-[14px]  text-white bg-[#232F3E]">
+            <ul className=" p-0  flex mt-2 items-center cursor-pointer">
               <Link
                 to={"/products"}
                 className="mr-[14px] no-underline text-white"
               >
-                <li className=" flex justify-center items-center">
+                <li className=" flex justify-center  ">
                   <img
-                    className="w-[30px] h-[30px]"
+                    className="w-[20px] h-[20px]"
                     src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668206/Amazon/Icons/pqwekkflbh1vfgwbfufd.png"
                     alt="hamburg"
+                    cl
                   />
                   <span className="  ">All</span>
                 </li>
@@ -259,14 +272,14 @@ function Header() {
               <li className="mr-4">Gift Ideas</li>
             </ul>
             <div>
-              <ul className="flex mr-9">
+              <ul className="flex mt-[6px]  ">
                 <li className="mr-[10px]">New Launches</li>
                 <li>Shop Now</li>
               </ul>
             </div>
           </div>
           {search ? (
-            <div className=" z-auto max-h-[200px] absolute bg-white overflow-hidden overflow-y-auto   w-[700px] border text-center  ml-[350px]    ">
+            <div className=" z-50 max-h-[200px] absolute bg-white overflow-hidden overflow-y-auto   w-[700px] border text-center  ml-[350px]    ">
               <div className="px-[4] py-1">
                 {data
                   .filter((item) => {

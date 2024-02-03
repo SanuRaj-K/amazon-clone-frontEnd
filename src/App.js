@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { createContext, useEffect, useState } from "react";
 import Home from "./Pages/Home/Home";
 import Registration from "./Pages/Register/Registration";
 import HomeLayout from "./Pages/Layout/AuthLay";
@@ -10,7 +11,6 @@ import ProudctSpec from "./Pages/Product/ProudctSpec";
 import Cart from "./Pages/User/Cart";
 import Verification from "./Pages/Register/Verification";
 import Google from "./Pages/Register/Google";
-import { createContext, useEffect, useState } from "react";
 import Form from "./Pages/Register/Form";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
@@ -48,7 +48,6 @@ function App() {
 
   useEffect(() => {
     const toastId = toast.loading("loading....");
-
     axios
       .get("https://amazon-clone-backend-fz8l.onrender.com/users/products", {
         withCredentials: true,

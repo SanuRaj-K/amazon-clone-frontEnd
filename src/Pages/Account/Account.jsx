@@ -17,7 +17,7 @@ function Account() {
   useEffect(() => {
     
     axios
-      .get(`http://localhost:3005/users/getuser/${userId}`)
+      .get(`https://amazon-clone-backend-fz8l.onrender.com/users/getuser/${userId}`)
       .then((res) => {
          
         setUserData(res.data);

@@ -1,14 +1,14 @@
-import React, {   useState } from "react";
+import React, { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
- 
+
 function Form() {
   const history = useNavigate();
   const data = localStorage.getItem("login");
   const res = jwtDecode(data);
-   const initialValues = {
+  const initialValues = {
     username: res.name,
     password: "",
     email: res.email,
@@ -38,14 +38,18 @@ function Form() {
     if (Object.keys(errors).length === 0) {
       //    const toastId = toast.loading("loading");
       axios
-        .post("http://localhost:3005/users/emailregister", formValues, {
-          withCredentials: true,
-        })
+        .post(
+          "https://amazon-clone-backend-fz8l.onrender.com/users/emailregister",
+          formValues,
+          {
+            withCredentials: true,
+          }
+        )
         .then((response) => {
           console.log(response);
           if (response.data.status === "success") {
             toast.success("Account created! login to continue");
-             
+
             history("/auth/login");
           }
         })

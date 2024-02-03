@@ -39,7 +39,7 @@ function Header() {
     if (loginToken) {
       const user = jwtDecode(loginToken);
       axios
-        .get(`http://localhost:3005/users/cartcount/${user.id}`)
+        .get(`https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.id}`)
         .then((res) => {
           if (!isEqual(place, res.data.address)) {
             setPlace(res.data.address);
@@ -56,7 +56,7 @@ function Header() {
   const handleAccount = () => {
     if (loginToken) {
       // axios
-      //   .post("http://localhost:3005/users/getuser", userData)
+      //   .post("https://amazon-clone-backend-fz8l.onrender.com/users/getuser", userData)
       //   .then((res) => console.log(res))
       //   .catch((err) => console.log(err));
       history("/account");
