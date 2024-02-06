@@ -48,7 +48,7 @@ function CarouselDefault() {
     <div className="  h-[780px]  w-full m-auto    relative ">
       <div
         style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-        className=" w-full h-full   bg-center bg-cover duration-500"
+        className=" w-full h-full cursor-pointer   bg-center bg-cover duration-500"
       >
         <div
           className={` absolute top-[20%]   left-5 rounder-full p-2     cursor-pointer ${

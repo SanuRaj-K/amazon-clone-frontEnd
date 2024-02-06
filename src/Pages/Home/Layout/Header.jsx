@@ -39,7 +39,9 @@ function Header() {
     if (loginToken) {
       const user = jwtDecode(loginToken);
       axios
-        .get(`https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.id}`)
+        .get(
+          `https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.id}`
+        )
         .then((res) => {
           if (!isEqual(place, res.data.address)) {
             setPlace(res.data.address);

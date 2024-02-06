@@ -65,7 +65,7 @@ function ProudctSpec() {
     // .catch((err) => {
     //   console.log(err);
     // });
-    toast.error('Please add to cart...')
+    toast.error('Please add to cart first...')
   };
 
   return (

@@ -42,9 +42,7 @@ function Header() {
       const user = jwtDecode(loginToken);
 
       axios
-        .get(
-          `https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.email}`
-        )
+        .get(`https://amazon-clone-backend-fz8l.onrender.com/users/cartcount/${user.email}`)
         .then((res) => {
           if (!isEqual(place, res.data.address)) {
             setPlace(res.data.address);
@@ -79,7 +77,7 @@ function Header() {
 
   return (
     <div className=" ">
-      <div className=" w-full ">
+      <div className=" w-full  ">
         <div>
           <nav className=" bg-[#131921]  text-white text-[12px] px-3 h-16 w-full flex justify-between items-center content-center">
             <div className="flex justify-between items-center  ">
@@ -97,9 +95,9 @@ function Header() {
                   className="h-[25px] w-[18px]"
                 />
                 &nbsp;&nbsp;
-                <span className=" ">
+                <span className=" cursor-pointer ">
                   {!place ? (
-                    <p>
+                    <p onClick={handleCart}>
                       Hello <br />
                       Select your location
                     </p>
@@ -141,7 +139,7 @@ function Header() {
             <div className="">
               <ul className="flex justify-between text-center items-center mt-2 ">
                 <li className="mr-[30px]">
-                  <div className="flex items-center ">
+                  <div className="flex items-center cursor-pointer">
                     <img
                       src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668171/Amazon/Pictures/cysqfup3xrsclamko9ie.png"
                       alt="indian flag"
@@ -175,7 +173,7 @@ function Header() {
                 {!loginToken ? (
                   <>
                     <li
-                      className="w-[30px] mb-3 mr-[20px] "
+                      className="w-[30px] mb-3 mr-[20px] cursor-pointer"
                       onClick={handleCart}
                     >
                       <span className="relative left-1 top-2 text-[#F07916]">
@@ -183,7 +181,7 @@ function Header() {
                       </span>
                       <img src={cart} alt="CartButton" className="cart" />
                     </li>
-                    <li className="">
+                    <li className=" cursor-pointer" onClick={handleCart}>
                       <span>Returns</span> <br />
                       <span className="font-semibold">& Orders</span>
                     </li>
@@ -224,7 +222,7 @@ function Header() {
                 to={"/products"}
                 className="mr-[14px] no-underline text-white"
               >
-                <li className=" flex justify-center  ">
+                <li className=" flex hover:border border-white px-2 py-1 justify-center  ">
                   <img
                     className="w-[20px] h-[20px]"
                     src="https://res.cloudinary.com/dgoermgtp/image/upload/v1703668206/Amazon/Icons/pqwekkflbh1vfgwbfufd.png"
@@ -238,38 +236,38 @@ function Header() {
                 to={`/category/${Fashion}`}
                 className=" text-white no-underline"
               >
-                <li className="mr-4 ">Fashion</li>
+                <li className="mr-4 hover:border border-white px-2 py-1">Fashion</li>
               </Link>
               <Link
                 to={`/category/${Mobiles}`}
-                className=" text-white no-underline"
+                className=" text-white no-underline "
               >
-                <li className="mr-4">Mobiles</li>
+                <li className="mr-4 hover:border border-white px-2 py-1">Mobiles</li>
               </Link>
               <Link
                 to={`/category/${Furniture}`}
-                className=" text-white no-underline"
+                className=" text-white no-underline "
               >
-                <li className="mr-4">Furniture</li>
+                <li className="mr-4 hover:border border-white px-2 py-1">Furniture</li>
               </Link>
               <Link
                 to={`/category/${Home_Appliances}`}
-                className=" text-white no-underline"
+                className=" text-white no-underline "
               >
-                <li className="mr-4">Home Appliances</li>
+                <li className="mr-4 hover:border border-white px-2 py-1">Home Appliances</li>
               </Link>
 
               <Link
                 to={`/category/${Electronics}`}
                 className=" text-white no-underline"
               >
-                <li className="mr-4">Electronics</li>
+                <li className="mr-4 hover:border border-white px-2 py-1">Electronics</li>
               </Link>
-              <li className="mr-4">Today's Deals</li>
-              <li className="mr-4">Coupons</li>
-              <li className="mr-4">Health, Household & Personal Care</li>
-              <li className="mr-4">New Releases</li>
-              <li className="mr-4">Gift Ideas</li>
+              <li className="mr-4 hover:border border-white px-2 py-1" >Today's Deals</li>
+              <li className="mr-4 hover:border border-white px-2 py-1">Coupons</li>
+              <li className="mr-4 hover:border border-white px-2 py-1">Health, Household & Personal Care</li>
+              <li className="mr-4 hover:border border-white px-2 py-1">New Releases</li>
+              <li className="mr-4 hover:border border-white px-2 py-1">Gift Ideas</li>
             </ul>
             <div>
               <ul className="flex mt-[6px]  ">

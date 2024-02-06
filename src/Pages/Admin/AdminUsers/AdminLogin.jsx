@@ -1,21 +1,36 @@
+import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const AdminLoginForm = () => {
   const history = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const initialValues = { username: "", password: "" };
+
+  const [formvalues, setFormvalues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormvalues({ ...formvalues, [name]: value });
+  };
 
   const handleLogin = (event) => {
     event.preventDefault();
-
-    if (username === "admin" && password === "sanuadmin") {
-      toast.success("Login successful!");
-      history("/admin");
-    } else {
-      toast.error("Invalid username or password. Please try again.");
-    }
+    axios
+      .post("https://amazon-clone-backend-fz8l.onrender.com/admin/login", formvalues, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data === "ok") {
+          toast.success("Login Successfull");
+          history("/admin");
+        } else {
+          toast.error("incorrect username or password");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -35,9 +50,9 @@ const AdminLoginForm = () => {
           <input
             type="text"
             id="username"
+            name="username"
             className="mt-1 p-2 w-full border rounded-md"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div className="mb-4">
@@ -50,9 +65,9 @@ const AdminLoginForm = () => {
           <input
             type="password"
             id="password"
+            name="password"
             className="mt-1 p-2 w-full border rounded-md"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
           />
         </div>
         <div>

@@ -51,7 +51,10 @@ div.common img {
     cursor: pointer;
 
 }
-
+section.set:hover span{
+    color: rgb(87, 159, 187);
+}
+ 
 section.set span {
     margin-left: 20px;
     font-size: 12px;

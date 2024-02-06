@@ -20,7 +20,7 @@ function Login() {
     e.preventDefault();
     axios
       .post(
-        "https://amazon-clone-backend-fz8l.onrender.com/cusers/login",
+        "https://amazon-clone-backend-fz8l.onrender.com/users/login",
         formValues,
         {
           withCredentials: true,

@@ -65,8 +65,9 @@ function OrderDetails() {
                   {add.map((i) => {
                     const date = new Date(i.orderDate);
                     return (
-                      <tr key={i._id}>
-                        <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
+                      <tr key={i._id} className=" hover:bg-[#cec7c7]">
+                        
+                        <td className="border-t-0  px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700">
                           <Link
                             to={`/admin/orders/${i.orderId}`}
                             className="cursor-pointer"

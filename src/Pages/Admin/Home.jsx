@@ -15,13 +15,15 @@ const AdminHomePage = () => {
   useEffect(() => {
     const toastId = toast.loading("loading...");
     axios
-      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/stats")
+      .get("https://amazon-clone-backend-fz8l.onrender.com/admin/stats", { withCredentials: true })
       .then((res) => {
+        console.log(res);
         setData(res.data);
         toast.remove(toastId);
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        toast.error(err.response.data, { id: toastId });
       });
   }, []);
 

@@ -35,13 +35,13 @@ function Home() {
               <div className=" grid grid-cols-2">
                 {DisplayFurniture.map((prod) => {
                   return (
-                    <section className="set" key={prod._id}>
+                    <section className="set " key={prod._id}>
                       <Link
                         to={`/product/${prod._id}`}
                         className=" no-underline text-black"
                       >
                         <img src={prod.Image} alt={prod.Title} width={"20px"} />
-                        <span className=" truncate">{prod.Title}</span>
+                        <span className=" truncate ">{prod.Title}</span>
                       </Link>
                     </section>
                   );
